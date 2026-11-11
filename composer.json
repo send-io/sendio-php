@@ -1,0 +1,54 @@
+{
+    "name": "sendio/sendio-php",
+    "description": "Official send.io PHP SDK.",
+    "keywords": ["php", "sendio", "send.io", "email", "sdk", "api", "client"],
+    "homepage": "https://send.io",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "send.io",
+            "email": "support@send.io",
+            "homepage": "https://send.io"
+        }
+    ],
+    "support": {
+        "email": "support@send.io",
+        "docs": "https://developer.send.io/docs/api"
+    },
+    "require": {
+        "php": "^8.1.0",
+        "guzzlehttp/guzzle": "^7.8.2 || ^8.0",
+        "guzzlehttp/psr7": "^2.6.3 || ^3.0",
+        "psr/http-client": "^1.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.13",
+        "mockery/mockery": "^1.6",
+        "pestphp/pest": "^1.0|^2.0|^3.0|^4.0|^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sendio\\": "src/"
+        },
+        "files": [
+            "src/Sendio.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "archive": {
+        "exclude": ["/vendor", "/composer.lock", "/.phpunit.cache", "/build", "/tests", "/examples"]
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
