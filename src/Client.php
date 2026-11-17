@@ -24,6 +24,7 @@ use Sendio\Service\ServiceFactory;
  * @property Service\Segment $segments
  * @property Service\Suppression $suppressions
  * @property Service\Template $templates
+ * @property Service\Transactional $transactional
  * @property Service\Topic $topics
  * @property Service\Usage $usage
  * @property Service\Webhook $webhooks

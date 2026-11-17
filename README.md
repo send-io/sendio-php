@@ -116,6 +116,33 @@ $sendio->domains->update($domain->id, ['capabilities' => ['receiving' => 'enable
 
 Sending is always enabled and can't be disabled.
 
+## Transactional emails
+
+A transactional email (a sign-in code, a password reset, a receipt) is a saved
+send of a published template: it keeps the From, subject, reply-to and
+tracking (off by default), and its content is always the template's published
+version. Create it once, then send it by id with only the recipient and the
+variables.
+
+```php
+$tx = $sendio->transactional->create([
+    'name' => 'Sign-in code',
+    'template_id' => 'signin-code', // a published template, by id or alias
+    'from' => 'Acme <security@yourdomain.com>',
+    'subject' => 'Your code is {{CODE}}',
+]);
+
+$sendio->emails->send([
+    'transactional_id' => $tx->id,
+    'to' => 'ada@example.com',
+    'variables' => ['CODE' => '123456'],
+]);
+```
+
+`$sendio->transactional` also has `list` (`search`, `template_id`), `get`,
+`update` (pass `expected_updated_at` to get a 409 instead of overwriting
+someone else's change), `remove`, `test` and `stats`.
+
 ## Mailboxes
 
 Mailboxes are real email accounts with an IMAP/SMTP login. The domain must be verified.

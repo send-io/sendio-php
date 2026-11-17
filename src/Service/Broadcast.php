@@ -50,7 +50,8 @@ class Broadcast extends Service
      *     'html'?: string|null, 'text'?: string, 'preview_text'?: string|null, 'topic_id'?: string|null,
      *     'segment_id'?: string, 'audience_id'?: string, 'segment_ids'?: string[], 'exclude_segment_ids'?: string[],
      *     'audience'?: 'segments'|'all', 'unsubscribe_scope'?: 'all'|'list', 'tracking'?: bool,
-     *     'template_engine'?: 'simple'|'handlebars', 'send'?: bool, 'scheduled_at'?: string
+     *     'template_engine'?: 'simple'|'handlebars', 'template_id'?: string, 'template_version_id'?: string,
+     *     'send'?: bool, 'scheduled_at'?: string
      * } $parameters `audience_id` is deprecated: use `segment_id`.
      *
      * @see https://developer.send.io/docs/api
@@ -103,7 +104,9 @@ class Broadcast extends Service
      *
      * Takes the create fields except send and scheduled_at; only the keys
      * given are changed. Once a broadcast is sending or sent, only its name
-     * can change.
+     * can change. `template_id` => null detaches a broadcast from its
+     * template; `template_version_id` alone switches to another published
+     * version of it. Sending html, text or template_engine detaches it too.
      *
      * @see https://developer.send.io/docs/api
      */

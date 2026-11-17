@@ -56,6 +56,11 @@ class Email extends Service
     /**
      * Send an email with the given parameters.
      *
+     * To send a transactional email, pass `transactional_id`, `to` and the
+     * template's `variables` (and no from, subject, reply_to or body: the
+     * transactional email sets them). `track_opens` and `track_clicks`
+     * override tracking for one email.
+     *
      * @see https://developer.send.io/docs/api
      */
     public function send(array $parameters, array $options = []): \Sendio\Email

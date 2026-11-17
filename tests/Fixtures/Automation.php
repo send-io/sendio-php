@@ -7,8 +7,8 @@ function automation(): array
         'id' => 'c9b16d4f-ba6c-4e2e-b044-6bf4404e57fd',
         'name' => 'Welcome series',
         'status' => 'enabled',
-        'created_at' => '2025-10-01 12:00:00.000000+00',
-        'updated_at' => '2025-10-01 12:00:00.000000+00',
+        'created_at' => '2025-10-01T12:00:00+00:00',
+        'updated_at' => '2025-10-01T12:00:00+00:00',
         'steps' => [
             [
                 'key' => 'trigger',
@@ -134,8 +134,8 @@ function automations(): array
                 'id' => 'c9b16d4f-ba6c-4e2e-b044-6bf4404e57fd',
                 'name' => 'Welcome series',
                 'status' => 'enabled',
-                'created_at' => '2025-10-01 12:00:00.000000+00',
-                'updated_at' => '2025-10-01 12:00:00.000000+00',
+                'created_at' => '2025-10-01T12:00:00+00:00',
+                'updated_at' => '2025-10-01T12:00:00+00:00',
             ],
         ],
     ];

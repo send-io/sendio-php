@@ -24,7 +24,7 @@ class Template extends Service
     /**
      * Retrieve the catalog of automation templates. This list is not paginated.
      *
-     * @param array{'category'?: 'onboarding'|'billing'|'ecommerce'|'engagement'|'lead_capture'|'internal'} $options
+     * @param array{'category'?: 'onboarding'|'billing'|'ecommerce'|'engagement'|'lead_capture'|'appointments'|'events'|'education'|'account'|'nonprofit'|'internal'} $options
      * @return \Sendio\Collection<\Sendio\Automations\Template>
      *
      * @see https://developer.send.io/docs/api

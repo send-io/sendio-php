@@ -21,6 +21,8 @@ namespace Sendio;
  * @property int $complained The number of spam complaints in the last 30 days.
  * @property string|null $last_sent_at Time at which the mailbox last sent an email.
  * @property string $health The sending health of the mailbox. Possible values: `no_data`, `healthy`, `at_risk` or `poor`.
+ * @property bool $can_send Whether POST /emails accepts this address as From now (the API's own rule).
+ * @property string|null $send_reason Why it cannot send, in a short line; null when it can.
  * @property array{username: string, password: string, imap: array{host: string, port: int, security: string}, smtp: array{host: string, port: int, security: string}}|null $credentials The IMAP/SMTP login, only returned once on create when IMAP/SMTP is ready. The password is also an API key for this mailbox.
  */
 class Mailbox extends Resource

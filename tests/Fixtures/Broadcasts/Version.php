@@ -12,7 +12,7 @@ function broadcastVersion(): array
         'broadcast_name' => 'Announcements',
         'subject' => 'hello world',
         'restored_from' => null,
-        'created_at' => '2024-12-01 19:32:22.98+00',
+        'created_at' => '2024-12-01T19:32:22.98+00:00',
         'current' => true,
         'from' => 'Acme <onboarding@send.io>',
         'tracking' => false,
@@ -36,7 +36,7 @@ function broadcastVersions(): array
                 'broadcast_id' => '559ac32e-9ef5-46fb-82a1-b76b840c0f7b',
                 'version_number' => 2,
                 'current' => true,
-                'created_at' => '2024-12-01 19:32:22.98+00',
+                'created_at' => '2024-12-01T19:32:22.98+00:00',
             ],
         ],
     ];

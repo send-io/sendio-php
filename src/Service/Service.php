@@ -33,6 +33,7 @@ use Sendio\Segment;
 use Sendio\Suppression;
 use Sendio\Template;
 use Sendio\Topic;
+use Sendio\TransactionalEmail;
 use Sendio\Usage;
 use Sendio\Webhook;
 use Sendio\Webhooks\Event as WebhookEvent;
@@ -71,6 +72,7 @@ abstract class Service
         'segments' => Segment::class,
         'suppressions' => Suppression::class,
         'templates' => Template::class,
+        'transactional' => TransactionalEmail::class,
         'topics' => Topic::class,
         'usage' => Usage::class,
         'webhook-event-attempts' => WebhookEventAttempt::class,

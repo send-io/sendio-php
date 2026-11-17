@@ -5,7 +5,7 @@ function sendioLog(): array
     return [
         'object' => 'log',
         'id' => '37e4414c-5e25-4dbc-a071-43552a4bd53b',
-        'created_at' => '2026-03-30 13:43:54.622865+00',
+        'created_at' => '2026-03-30T13:43:54.622865+00:00',
         'endpoint' => '/emails',
         'method' => 'POST',
         'response_status' => 200,
@@ -27,7 +27,7 @@ function sendioLogs(): array
         'data' => [
             [
                 'id' => '37e4414c-5e25-4dbc-a071-43552a4bd53b',
-                'created_at' => '2026-03-30 13:43:54.622865+00',
+                'created_at' => '2026-03-30T13:43:54.622865+00:00',
                 'endpoint' => '/emails',
                 'method' => 'POST',
                 'response_status' => 200,

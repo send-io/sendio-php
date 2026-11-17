@@ -16,6 +16,7 @@ namespace Sendio;
  * @property null|array $cc The email addresses of all carbon copy recipients.
  * @property null|array $reply_to The reply to email address.
  * @property string $last_event The last event for the email.
+ * @property string|null $transactional_id The transactional email it was sent from (only on such emails).
  * @property null|string $url The shareable link for the email, present on the response of the share endpoint.
  */
 class Email extends Resource

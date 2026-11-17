@@ -29,6 +29,13 @@ namespace Sendio;
  * @property null|string $failed_reason Why the broadcast failed, if it did.
  * @property string $updated_at Time at which the broadcast was updated.
  * @property null|int $version_number The broadcast's current version number.
+ * @property null|string $template_id The template the broadcast was made from (null for its own content).
+ * @property null|string $template_version_id The exact published template version it copied.
+ * @property null|string $template_name The template's name.
+ * @property null|int $template_version_number That version's number.
+ * @property null|string $template_version_name That version's name.
+ * @property bool|null $template_deleted Whether the template was deleted since.
+ * @property array<int, string>|null $unfillable_variables Template variables with no value in a broadcast; while not empty, sending is refused (422 unfillable_variables).
  */
 class Broadcast extends Resource
 {
