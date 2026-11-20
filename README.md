@@ -24,7 +24,7 @@ require __DIR__ . '/vendor/autoload.php';
 $sendio = Sendio::client(getenv('SENDIO_API_KEY'));
 
 $email = $sendio->emails->send([
-    'from' => 'Acme <onboarding@yourdomain.com>',
+    'from' => 'Acme <onboarding@send.io>',
     'to' => ['delivered@send.io'],
     'subject' => 'Hello from send.io',
     'html' => '<p>It works!</p>',
@@ -32,6 +32,8 @@ $email = $sendio->emails->send([
 
 echo $email->id;
 ```
+
+This example sends from `onboarding@send.io` to the test address `delivered@send.io`, so it works on a new account before you add a domain. `onboarding@send.io` can only send to test addresses. To email real people, send from an address on a domain you verified. A free mailbox works too once Mailboxes shows it can send.
 
 The `from` address must use a domain you have verified in send.io.
 
@@ -239,6 +241,16 @@ vendor/bin/pest
 # Live smoke test (sends one email):
 SENDIO_API_KEY=mx_... SENDIO_BASE_URL=https://api.send.io php examples/smoke.php
 ```
+
+## Releasing
+
+For maintainers. Releases go out from GitHub Actions on the public copy of this SDK, [send-io/sendio-php](https://github.com/send-io/sendio-php), not from a laptop:
+
+1. In send-io-core, bump the version in `src/Sendio.php` (`VERSION`), add the `CHANGELOG.md` entry and update the version shown in the console docs (a console test compares them), then merge into `develop`.
+2. Sync the public copy: replace its files with this folder's tracked files at the merged commit (`git ls-files`, since `.gitattributes` drops the tests from archives), commit it as `sync with send-io-core <short sha>` and push `main`.
+3. Run the Tag release workflow (`.github/workflows/tag.yml`) by hand on the public repository. It reads the version from `src/Sendio.php` (`VERSION`), runs the tests and pushes the matching `vX.Y.Z` tag, or does nothing if the tag exists.
+
+Packagist has no hook on the repository yet: press Update on packagist.org/packages/sendio/sendio-php.
 
 ## License
 

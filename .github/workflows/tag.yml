@@ -1,0 +1,35 @@
+# Releases sendio/sendio-php. Packagist reads versions from the tags on this
+# repository; it has no hook here yet, so press Update on the package page
+# (packagist.org/packages/sendio/sendio-php) after the tag is pushed.
+#
+# Run it by hand (Actions, Tag release, Run workflow) after the release commit
+# is on main. It reads the version from the source, runs the tests and pushes
+# the matching vX.Y.Z tag, or does nothing if that tag already exists.
+
+name: Tag release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # push the tag
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the existing tags
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - run: composer install --no-interaction --no-progress
+      - run: vendor/bin/pest
+      - name: Push the version tag if it does not exist
+        run: |
+          set -eu
+          tag="v$(grep -oP "VERSION = '\K[^']+" src/Sendio.php)"
+          if git rev-parse -q --verify "refs/tags/$tag" >/dev/null; then echo "$tag already exists, nothing to do"; exit 0; fi
+          git tag "$tag"
+          git push origin "$tag"
+          echo "pushed $tag"
